@@ -3,6 +3,7 @@ package com.example.spaceinvader1;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.transform.Translate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public abstract class MovingObject {
     double xChange;
     double yChange;
     List<Node> sprite = new ArrayList<>();
+    Translate translate = new Translate();
 
     public MovingObject(){
         initializeSprite();
@@ -32,7 +34,10 @@ public abstract class MovingObject {
 
     public void update(){
         for (Node node:sprite){
-            node.relocate(xChange,yChange);
+            node.getTransforms().clear();
+            translate.setX(xChange);
+            translate.setY(yChange);
+            node.getTransforms().add(translate);
         }
     }
 

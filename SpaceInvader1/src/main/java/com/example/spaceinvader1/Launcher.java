@@ -22,6 +22,7 @@ public class Launcher extends Application {
 
         Timeline timeline = new Timeline();
         timeline.getKeyFrames().add(new KeyFrame(Duration.millis(100),frameHandler));
+        timeline.setCycleCount(Timeline.INDEFINITE);
 
 
         Player player = new Player();
